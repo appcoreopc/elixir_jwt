@@ -1,18 +1,30 @@
-defmodule JwtElixir do
+
+
+defmodule Jwt do
+  
   @moduledoc """
   Documentation for JwtElixir.
   """
 
-  @doc """
-  Hello world.
+  defstruct type: "", 
+  algorithm: "", 
+  Content: ""
 
-  ## Examples
+  def HmacSha256(key) do
+   return %Algorithm{ algorithm: "HS256"}
+  end 
 
-      iex> JwtElixir.hello
-      :world
+  def HmacSha512(key) do
+   return %Algorithm{ algorithm: "HS512"}
+  end 
 
-  """
-  def hello do
-    :world
-  end
+  def HmacSha384(key) do
+   return %Algorithm{ algorithm: "HS384"}
+  end 
+
+end
+
+defmodule Algorithm do 
+ # signingHash hash.Hash # missing for the time being
+ defstruct algorithm: ""
 end
